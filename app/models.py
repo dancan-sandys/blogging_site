@@ -1,3 +1,22 @@
+from flask import Flask
 from . import db
 
 class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String)
+    email = db.Column(db.String)
+    password = db.Column(db.String)
+    profile_pic = db.Column(db.String)
+    bio = db.Column(db.String)
+    comments = db.Relationship('Comment', backref = 'comment', lazy ='dynamic')
+
+class Comment(db.Model):
+
+    __tablename__ = 'comments'
+
+    id  = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.String(300))
+    body = db.Column(db.String)
+    user = db.
+
