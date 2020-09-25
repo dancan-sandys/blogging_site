@@ -9,7 +9,7 @@ class User(db.Model):
     password = db.Column(db.String)
     profile_pic = db.Column(db.String)
     bio = db.Column(db.String)
-    comments = db.Relationship('Comment', backref = 'comment', lazy ='dynamic')
+    comment_id = db.Column(db.String(), ForeignKey('comments.id'))
 
 class Comment(db.Model):
 
@@ -18,5 +18,5 @@ class Comment(db.Model):
     id  = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(300))
     body = db.Column(db.String)
-    user = db.
+    user = db.Relationship('User', backref = 'comment', lazy ='dynamic')
 
