@@ -1,3 +1,9 @@
 {%for blog in blogs%}
-    {{blog.title}}
+   <h1>{{blog.title}}</h1> 
+    {%for comment in comments%}
+       {%if comment.blog_id == blog.id%}
+            <p>{{comment.title}}</p>
+       {%endif%}
+    {%endfor%}
+    <p><a href="/blogs/{{blog.id}}/new/comments">Add Comment</a></p>
 {%endfor%}

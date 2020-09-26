@@ -22,6 +22,13 @@ class Comment(db.Model):
     user = db.relationship('User', backref = 'comment', lazy ='dynamic')
     blog_id = db.Column(db.Integer(), db.ForeignKey('blogs.id'))
 
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete_comment(self):
+        db.session.delete(self)
+        db.session.commit()
 
 class Blogs(db.Model):
 
@@ -31,7 +38,7 @@ class Blogs(db.Model):
     title = db.Column(db.String)
     body = db.Column(db.String)
     user = db.relationship('User', backref = 'blog', lazy = 'dynamic')
-    Comment = db.relationship('Comment', backref = 'blog', lazy = 'dynamic')
+    Comments = db.relationship('Comment', backref = 'blog', lazy = 'dynamic')
 
     def save_blog(self):
         db.session.add(self)
@@ -43,5 +50,6 @@ class Blogs(db.Model):
 
 class Quotes():
 
-    def __init__(self, quote):
+    def __init__(self, author , quote):
+        self.author = author
         self.quote = quote
