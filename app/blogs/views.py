@@ -4,6 +4,7 @@ from . import blogs
 from ..models import Blogs,Comment
 from .. import db
 from ..request import load_quote
+from flask_login import login_required
 
 @blogs.route('/blogs/publish', methods = ['POST', 'GET'])
 def newblog():

@@ -1,7 +1,10 @@
 from flask import Flask
 from . import db
+from flask_login import UserMixin
+from . import login_manager
 
-class User(db.Model):
+
+class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String)
@@ -11,6 +14,21 @@ class User(db.Model):
     bio = db.Column(db.String)
     comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'))
     blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
+
+    def save_user(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def save_user(self):
+        db.session.delete(self)
+        db.session.commit()
+
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+
+
 
 class Comment(db.Model):
 
