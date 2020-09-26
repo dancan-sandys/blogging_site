@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    {%block styles%}
+
+    {%endblock%}
+
+        <link rel="stylesheet" href="{{url_for('static', filename = 'bootstrap.css')}}">
+
     {%block content%}
     {%endblock%}
 </body>
