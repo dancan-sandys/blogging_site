@@ -11,18 +11,21 @@ def create_app(config_option):
 
 
     app = Flask(__name__)
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     #setting up configurations
     app.config.from_object(config_options[config_option])
     config_options[config_option].init_app(app)
 
-    #Registering the blogs blueprint
+    # Registering the blogs blueprint
     from .blogs import blogs as blogs_blueprint
     app.register_blueprint(blogs_blueprint)
 
     #registering the authentification blueprint
-    from Authentification import auth as auth_blueprint
+    from .Authentification import auth as auth_blueprint
     app.register_blueprint(auth_blueprint)
 
     #initializing flask extensions
     db.init_app(app)
+
+    return app
