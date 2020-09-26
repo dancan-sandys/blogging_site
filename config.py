@@ -1,6 +1,7 @@
 class Config():
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sandys:Stanford1*@localhost/blogs'
-    
+    SECRET_KEY = 'Stanford'
+
     @staticmethod   
     def init_app(app):
         pass
