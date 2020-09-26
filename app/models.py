@@ -33,6 +33,13 @@ class Blogs(db.Model):
     user = db.relationship('User', backref = 'blog', lazy = 'dynamic')
     Comment = db.relationship('Comment', backref = 'blog', lazy = 'dynamic')
 
+    def save_blog(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete_blog(self):
+        db.session.delet(self)
+        db.session.commit()
 
 class Quotes():
 
