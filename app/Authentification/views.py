@@ -4,7 +4,7 @@ from ..models import User
 from flask_login import login_user
 from . import auth
 
-@auth.route('/profile/signup')
+@auth.route('/profile/signup', methods = ['GET','POST'])
 def signup():
     form = SignUp
 
@@ -18,12 +18,12 @@ def signup():
         new_user.save_user()
 
         return redirect(url_for('auth.signin'))
-    return render_template('authentification/SignOut')
+    return render_template('authentification/SignOut', form = form)
     
-@auth.route('/profile/signin')
+@auth.route('/profile/signin', methods = ['GET','POST'])
 def signin():
     
-    form = SignIn
+    form = SignIn()
     
     if form.validate_on_submit():
         user = User.query.filter_by(username = form.username.data).first()
@@ -36,7 +36,7 @@ def signin():
 
         flash('Invalid username or password')
 
-    return render_template('authentification.SignIn.html')
+    return render_template('authentification/SignIn.html', form = form)
 
 
 

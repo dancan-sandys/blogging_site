@@ -24,6 +24,7 @@ def newblog():
 
 @blogs.route('/blogs/posted')
 @blogs.route('/')
+@login_required
 def postedblogs():
 
     blogs = Blogs.query.all()
