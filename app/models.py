@@ -71,3 +71,7 @@ class Quotes():
     def __init__(self, author , quote):
         self.author = author
         self.quote = quote
+
+class Subscriber(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    email = db.Column(db.String)

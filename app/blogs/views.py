@@ -5,6 +5,8 @@ from ..models import Blogs,Comment
 from .. import db
 from ..request import load_quote
 from flask_login import login_required
+from ..email import mail
+
 
 @blogs.route('/blogs/publish', methods = ['POST', 'GET'])
 @login_required
@@ -47,6 +49,7 @@ def newcomment(blog_id):
 
         new_comment.save_comment()
 
+        mail("New Blogs","email/new_blogs",subscribers,)
         return redirect(url_for('.postedblogs'))
     
     return render_template('comments/new.html',form = form)
