@@ -7,6 +7,7 @@ from ..request import load_quote
 from flask_login import login_required
 
 @blogs.route('/blogs/publish', methods = ['POST', 'GET'])
+@login_required
 def newblog():
 
     form = Blog()
@@ -24,7 +25,6 @@ def newblog():
 
 @blogs.route('/blogs/posted')
 @blogs.route('/')
-@login_required
 def postedblogs():
 
     blogs = Blogs.query.all()
@@ -33,6 +33,7 @@ def postedblogs():
     return render_template('blogs/posted.html', blogs = blogs, comments = comments)
 
 @blogs.route('/blogs/<blog_id>/new/comments', methods = ['GET', 'POST'])
+@login_required
 def newcomment(blog_id):
 
     form = NewComment()
@@ -53,8 +54,11 @@ def newcomment(blog_id):
 
 
 @blogs.route('/quotes')
+@login_required
 def quote():
     quote = load_quote()
 
     return render_template('quotes.html', quote = quote)
+
+    
 

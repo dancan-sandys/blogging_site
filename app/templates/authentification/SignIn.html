@@ -2,4 +2,6 @@
 
 {%block content%}
 {{wtf.quick_form(form)}}
+
+<p>Dont have an account? <a href="{{url_for('auth.signup')}}">Create an account.</a></p>
 {%endblock%}

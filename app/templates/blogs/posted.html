@@ -1,3 +1,6 @@
+{%extends 'base.html'%}
+
+{%block content%}
 {%for blog in blogs%}
    <h1>{{blog.title}}</h1> 
     {%for comment in comments%}
@@ -7,3 +10,5 @@
     {%endfor%}
     <p><a href="/blogs/{{blog.id}}/new/comments">Add Comment</a></p>
 {%endfor%}
+
+{%endblock%}
