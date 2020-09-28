@@ -72,9 +72,9 @@ def subscribe():
         email = form.email.data
 
         new_subscriber = Subscriber(email = email)
+        new_subscriber.save_subscriber()
 
-        db.session.add(new_subscriber)
-        db.session.commit()
+        
 
         flash('You have successfully been added to our mailing list')
         return redirect(url_for('.postedblogs'))
