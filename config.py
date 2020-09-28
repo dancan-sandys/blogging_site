@@ -1,5 +1,5 @@
 class Config():
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sandys:Stanford1*@localhost/blogs'
+    
     SECRET_KEY = 'Stanford'
 
     UPLOADED_PHOTOS_DEST ='app/static/photos'
@@ -18,10 +18,11 @@ class Config():
         pass
 
 class DevConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sandys:Stanford1*@localhost/blogs'
     DEBUG = True
 
 class ProdConfig(Config):
-    pass
+     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class TestConfig(Config):
     pass
