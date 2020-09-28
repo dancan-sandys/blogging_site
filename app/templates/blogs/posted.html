@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="{{url_for('static', filename ='blogs.css')}}">
 {%endblock%}
 
-<p class="subscriber" ><a href="{{url_for('blogs.subscribe')}}">Click here</a> to subscibe for notifications on new blogs</p>
+<p class="subscriber"><a href="{{url_for('blogs.subscribe')}}">Click here</a> to subscibe for notifications on new blogs
+</p>
 <div class="heading">
    <hr>
    <h1 class="pagetitle">Blogs</h1>
@@ -18,9 +19,9 @@
    {%for blog in blogs%}
    <h1>{{blog.title}}</h1>
    <p>{{blog.body}}</p>
-<hr>
-<br>
-<br>
+   <hr>
+   <br>
+   <br>
    <h4>Comments</h4>
    {%for comment in comments%}
 
@@ -33,10 +34,14 @@
       </div>
 
       <div class="delete ">
-         <p><a class="btn-danger btn " href="{{url_for('blogs.deletecomment', comment_id = comment.id)}}">Delete Comment</a>
+         <p><a class="btn-danger btn " href="{{url_for('blogs.deletecomment', comment_id = comment.id)}}">Delete
+               Comment</a>
          </p>
       </div>
 
+      <hr>
+      <br>
+      <hr>
 
    </div>
    <br>
@@ -44,7 +49,7 @@
    <br>
    {%endif%}
    {%endfor%}
-   <p><a class= 'btn-success btn' href="/blogs/{{blog.id}}/new/comments">Add Comment</a></p>
+   <p><a class='btn-success btn' href="/blogs/{{blog.id}}/new/comments">Add Comment</a></p>
    <p><a class="btn-danger btn" href="{{url_for('blogs.deleteblog', blog_id = blog.id)}}">Delete Blog</a></p>
    {%endfor%}
 </div>
