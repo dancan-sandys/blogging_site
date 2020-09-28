@@ -3,31 +3,40 @@
 
 
 {%block content%}
-{%block style%}
+{%block styles%}
+{{super()}}
 
 <link rel="stylesheet" href="{{url_for('static', filename = 'profile.css')}}">
 {%endblock%}
 
 <div class="row">
-    
+
 
     <div class="col-md-6">
         {%if current_user.profile_pic%}
         <img src="{{url_for('static', filename = user.profile_pic)}}" alt="">
         {%else%}
-       
+
         <img src="{{url_for('static', filename = 'photos/pexels-annie-untalan-4015334.jpg')}}" alt="">
         {%endif%}
-        {{user.username}}
-        
-        <form action="{{url_for('profile.updateprofile', uname = user.username)}}", method = "post", enctype="multipart/form-data">
-            <input type="file"  name = 'photo' required >
-            <input type="submit"> 
+
+
+        <form action="{{url_for('profile.updateprofile', uname = user.username)}}" , method="post" ,
+            enctype="multipart/form-data">
+            <h5>Update profile</h5>
+            <input type="file" name='photo' required>
+            <input type="submit">
         </form>
     </div>
-    <div class="col-md-6 bio">
-        <h3>Bio</h3>
-        <p>I am Dancan</p>
+    <div class="col-md-5 bio card">
+        <h2>{{user.username}}</h2>
+        <h4>Bio</h4>
+        {%if user.bio%}
+        <p>{{user.bio}}</p>
+        {%else%}
+        <p>I am {{user.username}} and I don't have a Bio yet! </p>
+        {%endif%}
+        <p><a class="btn btn-success" href="{{url_for('profile.updatebio', uname = user.username)}}">Update Bio</a></p>
     </div>
 </div>
 {%endblock%}

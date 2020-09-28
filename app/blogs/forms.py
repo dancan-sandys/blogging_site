@@ -16,3 +16,10 @@ class Subscribe(FlaskForm):
 
     email = StringField('Enter your email address', validators=[Required()])
     submit = SubmitField('Subscribe')
+
+class UpdateBlog(FlaskForm):
+
+    
+    body = StringField('Enter the update bellow')
+    
+    

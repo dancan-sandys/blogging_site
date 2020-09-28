@@ -1,0 +1,33 @@
+.blogs{
+    margin: 2%;
+    padding: 5%;
+}
+.delete{
+    text-align: center;
+    width: 100%;
+}
+
+.pagetitle{
+    text-align: center;
+}
+
+.heading{
+    margin: 2%;
+}
+
+.comment{
+    padding: 1%;
+}
+
+.subscriber{
+    font-style: italic;
+    margin: 1%;
+}
+
+.subscriber a{
+    color: green;
+}
+
+.form{
+    margin: 4%;
+}

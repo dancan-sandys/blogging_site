@@ -5,7 +5,7 @@ from ..models import Blogs,Comment, Subscriber
 from .. import db
 from ..request import load_quote
 from flask_login import login_required
-from ..email import mail
+from ..email import mail_message
 from ..subscriber import get_subscribers
 
 
@@ -14,6 +14,7 @@ from ..subscriber import get_subscribers
 @login_required
 def newblog():
 
+    subscribers = get_subscribers()
     form = Blog()
     if form.validate_on_submit():
         title = form.title.data
@@ -23,6 +24,10 @@ def newblog():
 
         new_blog.save_blog()
 
+        try:
+            mail_message("New Blogs","email/new_blogs",subscribers)
+        except:
+            flash('Blog successfully posted')
         return redirect(url_for('.postedblogs'))
         
     return render_template('blogs/new.html', form = form)
@@ -43,7 +48,7 @@ def newcomment(blog_id):
     form = NewComment()
     if form.validate_on_submit():
 
-        subscribers = get_subscribers()
+        
 
         blog_id = blog_id
         title = form.title.data
@@ -53,7 +58,7 @@ def newcomment(blog_id):
 
         new_comment.save_comment()
 
-        mail("New Blogs","email/new_blogs",subscribers)
+        
 
         return redirect(url_for('.postedblogs'))
     
@@ -84,5 +89,33 @@ def quote():
 
     return render_template('quotes.html', quote = quote)
 
+
+@blogs.route('/delete/comment/<int:comment_id>')
+@login_required
+def deletecomment(comment_id):
+
+    Comment.query.filter_by(id = comment_id).delete()
+    db.session.commit()
     
+    return redirect(url_for('.postedblogs'))
+
+
+@blogs.route('/delete/blog/<int:blog_id>')
+@login_required
+def deleteblog(blog_id):
+
+    Blogs.query.filter_by(id = blog_id).delete()
+    db.session.commit()
+    
+    return redirect(url_for('.postedblogs'))
+
+@blogs.route('/update/blog/<int:blog_id>')
+@login_required
+def updateblog(blog_id):
+
+    Blog.query.filter_by(id = blog_id).first()
+    
+
+
+
 
