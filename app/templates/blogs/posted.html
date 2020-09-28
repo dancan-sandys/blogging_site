@@ -16,7 +16,9 @@
 </div>
 
 <div class="blogs card">
+
    {%for blog in blogs%}
+   <div class="card"></div>
    <h1>{{blog.title}}</h1>
    <p>{{blog.body}}</p>
    <hr>
@@ -51,7 +53,8 @@
    {%endfor%}
    <p><a class='btn-success btn' href="/blogs/{{blog.id}}/new/comments">Add Comment</a></p>
    <p><a class="btn-danger btn" href="{{url_for('blogs.deleteblog', blog_id = blog.id)}}">Delete Blog</a></p>
-   {%endfor%}
+</div>
+{%endfor%}
 </div>
 
 {%endblock%}
