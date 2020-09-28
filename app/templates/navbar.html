@@ -5,7 +5,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" href="/user/profile/{{current_user}}">Profile <span class="sr-only">(current)</span></a>
+        <a class="nav-link active" href="/user/profile/{{current_user.username}}">Profile <span class="sr-only">(current)</span></a>
         <a class="nav-link" href="{{url_for('blogs.newblog')}}">Add Blog</a>
         <a class="nav-link" href="{{url_for('blogs.quote')}}">Quotes</a>
         {% if current_user.is_authenticated %}

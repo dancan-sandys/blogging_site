@@ -34,14 +34,15 @@ def signin():
 
         
 
-        if user is not None:
+        if user is not None and user.password == form.password.data: 
 
             login_user(user,form.Remember.data)
 
             return redirect(url_for('blogs.postedblogs'))
 
         flash('Invalid username or password')
-    flash('I am in')
+
+    
     return render_template('authentification/SignIn.html', form = form)
 
 @auth.route('/profile/signout', methods = ['GET','POST'])

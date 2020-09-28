@@ -11,3 +11,8 @@ class NewComment(FlaskForm):
     title = StringField('Enter the title of the comment')
     comment = TextAreaField('Write Down your comments bellow')
     submit = SubmitField('comment')
+
+class Subscribe(FlaskForm):
+
+    email = StringField('Enter your email address', validators=[Required()])
+    submit = SubmitField('Subscribe')
