@@ -1,20 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand" href="{{url_for('blogs.postedblogs')}}">Blogs</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        {%if current_user.is_authenticated%}
-        <a class="nav-link active" href="/user/profile/{{current_user.username}}">Profile <span class="sr-only">(current)</span></a>
-        {%endif%}
-        <a class="nav-link" href="{{url_for('blogs.newblog')}}">Add Blog</a>
-        <a class="nav-link" href="{{url_for('blogs.quote')}}">Quotes</a>
-        {% if current_user.is_authenticated %}
-        <a class="nav-link" href="{{url_for('auth.signout')}}" tabindex="-1" aria-disabled="true">Sign Out</a>
-        {%else%}
-        <a class="nav-link" href="{{url_for('auth.signin')}}" tabindex="-1" aria-disabled="true">Sign In</a>
-        {%endif%}
-      </div>
+<nav class="nav navbar navbar-expand-lg navbar-light bg-success">
+  <a class="navbar-brand" href="{{url_for('blogs.postedblogs')}}">Sandys Blogs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      {%if current_user.is_authenticated%}
+      <a class="nav-link active" href="/user/profile/{{current_user.username}}">Profile <span
+          class="sr-only">(current)</span></a>
+      {%endif%}
+      <a class="nav-link" href="{{url_for('blogs.newblog')}}">Add Blog</a>
+      <a class="nav-link" href="{{url_for('blogs.quote')}}">Quotes</a>
+      {% if current_user.is_authenticated %}
+      <a class="nav-link" href="{{url_for('auth.signout')}}" tabindex="-1" aria-disabled="true">Sign Out</a>
+      {%else%}
+      <a class="nav-link" href="{{url_for('auth.signin')}}" tabindex="-1" aria-disabled="true">Sign In</a>
+      {%endif%}
     </div>
-  </nav>
+  </div>
+</nav>

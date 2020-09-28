@@ -6,9 +6,13 @@
 {{super()}}
 <link rel="stylesheet" href="{{url_for('static', filename ='quotes.css')}}">
 {%endblock%}
-<h4>{{quote.author}}</h4>
-<p>{{quote.quote}}</p>
 
+<div class="quote card bg-success quote">
+    
+    <p>{{quote.quote}}</p>
+    <hr>
+    <h4 class="author">~~ {{quote.author}} ~~</h4>
+</div>
 
 
 {%endblock%}

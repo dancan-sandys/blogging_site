@@ -9,6 +9,9 @@
 
 .pagetitle{
     text-align: center;
+    font-style: italic;
+    font-size: 50px;
+    color: green;
 }
 
 .heading{
@@ -34,4 +37,18 @@
 
 nav{
     color: white;
+}
+
+.newblog{
+    padding: 3%;
+    margin: 7%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 50px black;
+}
+
+.newcomment{
+    padding: 3%;
+    margin: 7%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 50px black;
 }

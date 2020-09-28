@@ -1,0 +1,15 @@
+.quote{
+    width: 50%;
+    height: 50vh;
+    margin: 10% 20%;
+    padding: 5%;
+    padding-top: 8%;
+    text-align: center;
+    align-items: center;
+    box-shadow: 5px 5px 50px black;
+}
+
+.author{
+    font-style: italic;
+    font-weight: lighter;
+}
