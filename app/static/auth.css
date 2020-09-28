@@ -14,3 +14,7 @@
 .account a{
     color: green;
 }
+
+.signing{
+    box-shadow: 5px 5px 50px black;
+}

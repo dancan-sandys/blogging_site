@@ -51,7 +51,7 @@ def signout():
 
     logout_user()
 
-    return redirect(url_for('blogs.postedblogs'))
+    return redirect(url_for('auth.signin'))
 
 
 

@@ -5,8 +5,9 @@
 {{super()}}
 <link rel="stylesheet" href="{{url_for('static', filename ='auth.css')}}">
 {%endblock%}
-<div class="form bg-success">
-{{wtf.quick_form(form)}}
+<div class="form bg-success signing">
+    <h6>Sign in</h6>
+    {{wtf.quick_form(form)}}
 </div>
 <h4 class="account">Dont have an account? <a href="{{url_for('auth.signup')}}">Create an account.</a></h4>
 {%endblock%}
