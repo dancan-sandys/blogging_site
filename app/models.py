@@ -19,9 +19,6 @@ class User(UserMixin, db.Model):
         db.session.add(self)
         db.session.commit()
 
-    def save_user(self):
-        db.session.delete(self)
-        db.session.commit()
 
 
     @login_manager.user_loader
