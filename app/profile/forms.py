@@ -4,6 +4,6 @@ from wtforms.validators import Required
 
 class bio(FlaskForm):
 
-    bio = StringField('Tell us about you', validators=[Required()])
+    bio = StringField('Tell us about you',id='bio', validators=[Required()])
     submit = SubmitField('Update')
 

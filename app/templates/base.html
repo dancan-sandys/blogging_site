@@ -12,10 +12,12 @@
 <body>
     {%block styles%}
     <link rel="stylesheet" href="{{url_for('static', filename = 'bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename ='main.css')}}">
+
     {%endblock%}
 
     {% block navbar %}
-        {% include 'navbar.html' %}
+    {% include 'navbar.html' %}
     {% endblock %}
 
     {%block content%}

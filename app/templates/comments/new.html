@@ -1,7 +1,13 @@
 {%extends 'base.html'%}
 
 {%block content%}
-{{wtf.quick_form(form)}}
+{%block styles%}
 
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename ='blogs.css')}}">
+{%endblock%}
+<div class="form">
+{{wtf.quick_form(form)}}
+</div>
 
 {%endblock%}

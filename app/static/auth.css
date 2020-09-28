@@ -1,0 +1,12 @@
+.form{
+    margin: 5%;
+}
+
+.account{
+    font-style: italic;
+    margin: 2%;
+}
+
+.account a{
+    color: green;
+}
