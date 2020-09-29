@@ -2,7 +2,7 @@ import os
 
 class Config():
     
-    SECRET_KEY = 'Stanford'
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     
@@ -10,8 +10,8 @@ class Config():
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = 'dancan.oruko99@gmail.com'
-    MAIL_PASSWORD = 'Stanford1*'
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = OS.environ.get('MAIL_PASSWORD')
 
     
 
